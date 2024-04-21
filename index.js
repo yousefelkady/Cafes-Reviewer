@@ -9,7 +9,6 @@ const morgan = require("morgan");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const AppError = require("./utils/appError").AppError;
-const port = 3000;
 const cafesRouter = require("./routes/cafes");
 const reviewsRouter = require("./routes/reviews");
 const User = require("./models/user");
@@ -59,6 +58,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 require("dotenv").config();
+const port = process.env.PORT;
 const url = process.env.DB_URL;
 const db = mongoose
   .connect(url)
