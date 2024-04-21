@@ -111,6 +111,10 @@ app.get("/", (req, res, next) => {
   res.send("Hello");
 });
 
+app.get("/home", (req, res, next) => {
+  res.render("home.html");
+});
+
 app.get("/upload", (req, res, next) => {
   res.render("upload.ejs");
 });
