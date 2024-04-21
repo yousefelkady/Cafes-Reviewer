@@ -117,9 +117,9 @@ app.get("/home", (req, res, next) => {
 
 app.get("/api", (req, res, next) => {
   const person = {
-    name: Yousef,
+    name: "Yousef",
     age: 10,
-    gender: male,
+    gender: "male",
     height : 160
   }
   res.send(person);
