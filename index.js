@@ -112,7 +112,17 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/home", (req, res, next) => {
-  res.sendFile(__dirname + '/public/html/home.html');
+  res.sendFile(__dirname + "/public/html/home.html");
+});
+
+app.get("/api", (req, res, next) => {
+  const person = {
+    name: Yousef,
+    age: 10,
+    gender: male,
+    height : 160
+  }
+  res.send(person);
 });
 
 app.get("/upload", (req, res, next) => {
