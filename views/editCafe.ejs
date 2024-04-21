@@ -1,0 +1,42 @@
+<%layout('layouts/boilerplate')%>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1 class="text-center">Edit Cafe</h1>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form action="/cafes/<%=cafe.id%>/edit?_method=PATCH" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Cafe Name</label>
+                        <input type="text" class="form-control" value="<%= cafe.name %>" name="name" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description"
+                            rows="5"><%= cafe.description %></textarea>
+                    </div>
+                    <label for="price" class="form-label">Price</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="number" value="<%= cafe.price %>" id="price" name="price" class="form-control"
+                            aria-label="Amount (to the nearest dollar)">
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <label for="location" class="form-label">Cafe Location</label>
+                            <input type="text" value="<%= cafe.location %>" class="form-control" name="location"
+                                id="location">
+                        </div>
+                        <div class="col-6">
+                            <label for="image" class="form-label">Cafe Image</label>
+                            <input type="text" value="<%= cafe.image %>" class="form-control" name="image" id="image">
+                        </div>
+                    </div>
+                    <div class="col-12"> <!-- Wrap both buttons inside a single col-12 div -->
+                        <button type="submit" class="btn btn-success me-3">Save</button>
+                        <a href="/cafes/<%= cafe.id %>" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>

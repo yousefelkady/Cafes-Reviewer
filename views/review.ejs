@@ -1,0 +1,40 @@
+<%layout('layouts/boilerplate')%>
+    <link rel="stylesheet" href="../public/stylesheets/star.css" />
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1 class="text-center">Add Review</h1>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form action="/cafes/<%= id %>/review" method="POST" novalidate class="needs-validation">
+                    <div class="mb-2">
+                        <label for="rating" class="form-label">Rating</label>
+                        <fieldset class="starability-slot">
+                            <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                                aria-label="No rating." />
+                            <input type="radio" id="first-rate1" name="rating" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="rating" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="rating" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="rating" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="rating" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                        </fieldset>
+                    </div>
+                    <div class="mb-3">
+                        <label for="body" class="form-label">Body</label>
+                        <textarea class="form-control" id="body" name="body" rows="3" required></textarea>
+                        <div class="valid-feedback">Good Job!</div>
+                        <div class="invalid-feedback">Body is Required!</div>
+                    </div>
+
+                    <div class="col-12"> <!-- Wrap both buttons inside a single col-12 div -->
+                        <button type="submit" class="btn btn-success me-3">Create</button>
+                        <a href="/cafes/<%= id %>" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>

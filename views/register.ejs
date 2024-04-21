@@ -1,0 +1,35 @@
+<!-- prettier-ignore -->
+<%layout('layouts/boilerplate')%>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1 class="text-center">Register</h1>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form action="/auth/register" method="post" novalidate class="needs-validation">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username" id="username" required>
+                        <div class="valid-feedback">Good Job!</div>
+                        <div class="invalid-feedback">Username is Required!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" required>
+                        <div class="valid-feedback">Good Job!</div>
+                        <div class="invalid-feedback">Email is Required!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" required>
+                        <div class="valid-feedback">Good Job!</div>
+                        <div class="invalid-feedback">Password is Required!</div>
+                    </div>
+                    <div class="row justify-content-center mt-4">
+                        <!-- Wrap both buttons inside a single col-12 div -->
+                        <button type="submit" class=" col-4 btn btn-lg btn-primary me-3">Register</button>
+                        <a href="/auth/login" class=" col-4 btn btn-lg btn-success">Have an account? Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>

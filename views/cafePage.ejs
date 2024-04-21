@@ -1,0 +1,59 @@
+<%layout('layouts/boilerplate')%>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1 class="text-center">Cafe Details</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <img src=" <%=cafe.image %>" class="card-img-top thumbnail img-fluid" alt="">
+            <div class="card-body">
+                <h3 class="card-title">
+                    <%=cafe.name %>
+                </h3>
+                <h4 class="card-text text-muted">
+                    <%= cafe.location %>
+                </h4>
+                <h5 class="card-text text-primary">
+                    <i>$<%= cafe.price %> Avg. Meal Price</i>
+                </h5>
+                <p class="card-text">
+                    <%= cafe.description %>
+                </p>
+                <% if(reviews.length){ %>
+                    <h4 class="card-title">Reviews</h4>
+                    <% for(review of reviews){ %>
+                        <div class="card child-card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Rating</h5>
+                                <p class="starability-result" data-rating="<%= review.rating %>">
+                                </p>
+                                <h5 class="card-title mt-5">Review</h5>
+                                <p class="card-text ">
+                                    <%= review.body %>
+                                </p>
+                                <div class="d-flex flex-row-reverse">
+                                    <form action="/cafes/<%= cafe.id %>/review/<%= review.id %>/delete?_method=DELETE"
+                                        method="POST" class="d-inline card-link">
+                                        <input class="btn btn-danger" type="submit" value="Delete">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } %>
+
+
+
+            </div>
+            <div class="card-footer">
+                <a href="/cafes" class="card-link btn btn-primary">All Cafes</a>
+                <a href="/cafes/<%=cafe.id%>/edit" class="card-link btn btn-warning">Edit Cafe</a>
+                <a href="/cafes/<%=cafe.id%>/review" class="card-link btn btn-success">Add Review</a>
+                <form action="/cafes/<%=cafe.id%>/delete?_method=DELETE" method="POST" class="d-inline card-link">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
