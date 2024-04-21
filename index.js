@@ -112,7 +112,7 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/home", (req, res, next) => {
-  res.render("home.html");
+  res.sendFile(__dirname + '/public/html/home.html');
 });
 
 app.get("/upload", (req, res, next) => {
